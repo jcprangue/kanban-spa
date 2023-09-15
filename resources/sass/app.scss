@@ -1,0 +1,121 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.login-title {
+    padding: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.login-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 9px;
+    border: none;
+}
+
+.login-form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(253, 242, 233, 0.5);
+}
+
+.btn--form {
+    background-color: #f48982;
+    color: #fdf2e9;
+    align-self: end;
+    padding: 8px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 9px;
+    border: none;
+
+    cursor: pointer;
+    font-family: inherit;
+
+    transition: all 0.3s;
+}
+
+button {
+    outline: 1px solid #f48982;
+}
+
+.btn--form:hover {
+    background-color: #fdf2e9;
+    color: #f48982;
+}
+
+.icon-calendar {
+    background-image: url('/images/calendar-icon-v2.svg');
+}
+
+.text-sm {
+    font-size: 12px;
+}
+
+.badge-success{
+    background-color: #28a745 !important;
+    color: #FFF;
+}
+
+.badge-info {
+    background-color: #17a2b8 !important;
+    color: #FFF;
+}
+
+.badge-dark {
+    background-color: #000000 !important;
+    color: #FFF;
+}
+
+.badge-light {
+    background-color: #c6c6c6 !important;
+    color: #FFF;
+}
+
+.badge-secondary {
+    background-color: #6c757d !important;
+    color: #FFF;
+}
+
+.marg-top{
+    margin-top:15px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.add-task-link{
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    
+    &:hover{
+        text-decoration: underline;
+    }
+}
