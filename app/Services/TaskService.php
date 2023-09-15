@@ -14,7 +14,7 @@ class TaskService
         $tasks = Task::when($request->search, function ($query) use ($request) {
             $query->where('title', 'LIKE', $request->search . '%')
                 ->orWhere('description', 'LIKE', $request->search . '%');
-        })->get()->map(function ($query) {
+        })->orderBy('precedence')->get()->map(function ($query) {
             $status = config('kanban.kanban-status');
             return [
                 "id" => $query->id,
@@ -82,8 +82,30 @@ class TaskService
             }
             $task->status = $_status;
         }
+
         $task->task_group = $request->task_group;
         $task->save();
+        return $task;
+    }
+
+    public function sort($request)
+    {
+        if (!is_int($request->status)) {
+            $_status = '';
+            $status = collect(config('kanban.kanban-status'));
+            foreach ($status as $key => $value) {
+                if ($value == $request->status) {
+                    $_status = $key;
+                }
+            }
+        }
+
+        foreach ($request->ids as $key => $value) {
+            $task = Task::find($value);
+            $task->precedence = $key;
+            $task->save();
+        }
+
         return $task;
     }
 }

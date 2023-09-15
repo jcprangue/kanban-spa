@@ -126,4 +126,21 @@ class TaskController extends Controller
             );
         }
     }
+
+    public function sort(Request $request, TaskService $taskService)
+    {
+        try {
+            $data = $taskService->sort($request);
+
+            return $this->formatSuccessResponse(
+                $data,
+                "Successfully sort tasks"
+            );
+        } catch (\Exception $e) {
+            Log::info($e->getMessage());
+            return $this->errorResponse(
+                'Failed to sort tasks.'
+            );
+        }
+    }
 }

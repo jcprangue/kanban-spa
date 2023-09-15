@@ -1,13 +1,19 @@
 import boardTask from './components/task/board.vue';
 import login from './components/auth/login.vue';
+import register from './components/auth/register.vue';
 import createTask from './components/task/create-task.vue';
 import updateTask from './components/task/update-task.vue';
- 
+
 export const routes = [
     {
         name: 'Login',
         path: '/login',
         component: login
+    },
+    {
+        name: 'Register',
+        path: '/register',
+        component: register
     },
     {
         name: 'Board',

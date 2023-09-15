@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white shadow rounded px-3 pt-3 pb-1 border border-white">
+    <div class="bg-white shadow rounded px-3 pt-3 pb-1 border border-white" :data-tasks-id="task.id">
         <div class="d-flex justify-content-between">
             <p class="text-secondary font-weight-bold">
                 {{ task.title }}</router-link>
@@ -18,7 +18,7 @@
             <font-awesome-icon icon="fa-solid fa-trash" class="cursor" @click="deleteDialog(task.id)" />
         </div>
 
-</div>
+    </div>
 </template>
 <script>
 import Badge from "@/components/task/utils/Badge.vue";
@@ -44,13 +44,13 @@ export default {
             };
             return mappings[this.task.task_group] || mappings.default;
         },
-        
+
     },
     methods: {
         deleteDialog(id) {
             const result = confirm("Do you want to delete?");
             if (result) {
-                this.$emit("deleteTask",id)
+                this.$emit("deleteTask", id)
             }
         }
 

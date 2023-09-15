@@ -31,5 +31,6 @@ Route::name('api.')
 
         Route::group(['middleware' => ['auth:sanctum']], function () {
             Route::resource('tasks', TaskController::class);
+            Route::post('/tasks/sort', [TaskController::class, 'sort'])->name('tasks.sort');
         });
     });

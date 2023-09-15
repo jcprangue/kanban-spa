@@ -2,14 +2,14 @@ import axios from 'axios'
 
 export default {
     namespaced: true,
-    state:{
+    state: {
         tasks: [],
     },
-    getters:{
+    getters: {
         tasks: state => state.tasks,
     },
-    mutations:{
-        SET_TASKS (state, value) {
+    mutations: {
+        SET_TASKS(state, value) {
             state.tasks = value
         }
 
@@ -18,15 +18,15 @@ export default {
         fetchTaskData({ commit, rootGetters }, params) {
             const token = rootGetters['auth/token'];
             return axios.get(`${process.env.MIX_APP_URL}/api/v1/tasks`,
-                {headers: {Authorization: `Bearer ${token}`}}
+                { headers: { Authorization: `Bearer ${token}` } }
             ).then(({ data }) => {
                 commit('SET_TASKS', data.data);
-            }).catch(({response:{data}})=>{
-                commit('SET_TASKS',{})
+            }).catch(({ response: { data } }) => {
+                commit('SET_TASKS', {})
             })
         },
 
-        showTaskData({ commit, rootGetters },params) {
+        showTaskData({ commit, rootGetters }, params) {
             const token = rootGetters['auth/token'];
             return new Promise((resolve, reject) => {
                 axios.get(`${process.env.MIX_APP_URL}/api/v1/tasks/${params}`,
@@ -38,9 +38,9 @@ export default {
                 });
             })
         },
-        
-      
-        storeData({ commit, rootGetters },params) {
+
+
+        storeData({ commit, rootGetters }, params) {
             const token = rootGetters['auth/token'];
             return new Promise((resolve, reject) => {
                 axios.post(`${process.env.MIX_APP_URL}/api/v1/tasks`, params,
@@ -52,7 +52,7 @@ export default {
                 });
             })
         },
-        updateData({ commit, rootGetters },params) {
+        updateData({ commit, rootGetters }, params) {
             const token = rootGetters['auth/token'];
             return new Promise((resolve, reject) => {
                 axios.put(`${process.env.MIX_APP_URL}/api/v1/tasks/${params.id}`, params,
@@ -64,7 +64,22 @@ export default {
                 });
             })
         },
-        destroyData({ commit, rootGetters },params) {
+
+        sortData({ commit, rootGetters }, params) {
+            const token = rootGetters['auth/token'];
+            return new Promise((resolve, reject) => {
+                axios.post(`${process.env.MIX_APP_URL}/api/v1/tasks/sort`, params,
+                    { headers: { Authorization: `Bearer ${token}` } }
+                ).then(response => {
+                    resolve(response)
+                }).catch(error => {
+                    reject(error)
+                });
+            })
+        },
+
+
+        destroyData({ commit, rootGetters }, params) {
             const token = rootGetters['auth/token'];
             return new Promise((resolve, reject) => {
                 axios.delete(`${process.env.MIX_APP_URL}/api/v1/tasks/${params}`,
@@ -76,17 +91,17 @@ export default {
                 });
             })
         },
-        
+
         updateTaskData({ commit, rootGetters }, params) {
             const token = rootGetters['auth/token'];
-            return axios.put(`${process.env.MIX_APP_URL}/api/v1/tasks/${params.id}`,params,
-                {headers: {Authorization: `Bearer ${token}`}}
+            return axios.put(`${process.env.MIX_APP_URL}/api/v1/tasks/${params.id}`, params,
+                { headers: { Authorization: `Bearer ${token}` } }
             ).then(({ data }) => {
                 // commit('SET_TASKS', data.data);
-            }).catch(({response:{data}})=>{
+            }).catch(({ response: { data } }) => {
                 // commit('SET_TASKS',{})
             })
         },
-        
+
     }
 }

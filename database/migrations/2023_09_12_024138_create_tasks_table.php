@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->dateTime('due_date')->nullable();
             $table->string('task_group')->nullable();
             $table->integer('status')->nullable()->comment('1 - Todo, 2 - In Progress, 3 - Done');
+            $table->integer('precedence')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

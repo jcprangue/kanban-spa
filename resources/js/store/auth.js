@@ -41,6 +41,17 @@ export default {
             })
         },
 
+        register({ commit }, params) {
+            return new Promise((resolve, reject) => {
+                axios.post(`${process.env.MIX_APP_URL}/api/v1/register`, params).then(response => {
+                    resolve(response)
+                }).catch(error => {
+                    reject(error)
+                });
+            })
+        },
+
+
         logout({ commit }) {
             commit('SET_USER', {})
             commit('SET_AUTHENTICATED', false)
