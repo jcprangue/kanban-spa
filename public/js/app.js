@@ -6722,7 +6722,7 @@ __webpack_require__.r(__webpack_exports__);
     login: function login(_ref, params) {
       var commit = _ref.commit;
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat("http://spa-kanban.test", "/api/v1/login"), params).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat("http://kanban-spa.test", "/api/v1/login"), params).then(function (response) {
           commit('SET_USER', response.data.user);
           commit('SET_TOKEN', response.data.access_token);
           commit('SET_AUTHENTICATED', true);
@@ -6812,7 +6812,7 @@ __webpack_require__.r(__webpack_exports__);
       var commit = _ref.commit,
         rootGetters = _ref.rootGetters;
       var token = rootGetters['auth/token'];
-      return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat("http://spa-kanban.test", "/api/v1/tasks"), {
+      return axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat("http://kanban-spa.test", "/api/v1/tasks"), {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
@@ -6829,7 +6829,7 @@ __webpack_require__.r(__webpack_exports__);
         rootGetters = _ref4.rootGetters;
       var token = rootGetters['auth/token'];
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat("http://spa-kanban.test", "/api/v1/tasks/").concat(params), {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get("".concat("http://kanban-spa.test", "/api/v1/tasks/").concat(params), {
           headers: {
             Authorization: "Bearer ".concat(token)
           }
@@ -6845,7 +6845,7 @@ __webpack_require__.r(__webpack_exports__);
         rootGetters = _ref5.rootGetters;
       var token = rootGetters['auth/token'];
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat("http://spa-kanban.test", "/api/v1/tasks"), params, {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("".concat("http://kanban-spa.test", "/api/v1/tasks"), params, {
           headers: {
             Authorization: "Bearer ".concat(token)
           }
@@ -6861,7 +6861,7 @@ __webpack_require__.r(__webpack_exports__);
         rootGetters = _ref6.rootGetters;
       var token = rootGetters['auth/token'];
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().put("".concat("http://spa-kanban.test", "/api/v1/tasks/").concat(params.id), params, {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().put("".concat("http://kanban-spa.test", "/api/v1/tasks/").concat(params.id), params, {
           headers: {
             Authorization: "Bearer ".concat(token)
           }
@@ -6877,7 +6877,7 @@ __webpack_require__.r(__webpack_exports__);
         rootGetters = _ref7.rootGetters;
       var token = rootGetters['auth/token'];
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("".concat("http://spa-kanban.test", "/api/v1/tasks/").concat(params), {
+        axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]("".concat("http://kanban-spa.test", "/api/v1/tasks/").concat(params), {
           headers: {
             Authorization: "Bearer ".concat(token)
           }
@@ -6892,7 +6892,7 @@ __webpack_require__.r(__webpack_exports__);
       var commit = _ref8.commit,
         rootGetters = _ref8.rootGetters;
       var token = rootGetters['auth/token'];
-      return axios__WEBPACK_IMPORTED_MODULE_0___default().put("".concat("http://spa-kanban.test", "/api/v1/tasks/").concat(params.id), params, {
+      return axios__WEBPACK_IMPORTED_MODULE_0___default().put("".concat("http://kanban-spa.test", "/api/v1/tasks/").concat(params.id), params, {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
